@@ -3,4 +3,41 @@
           box-sizing: border-box;
 }
 
+img{
+          opacity: 0.6;
+}
+
+ img:hover{
+
+          transform: scale(1.1);
+opacity: 1;
+ }
+
+ .galleryPart{
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr 1fr 1fr;
+ }
+
+ article{
+          overflow: scroll;
+          scrollbar-width: none;
+          border: 1px solid blue;
+ }
+ article >h3{
+          text-align: center;
+ }
+
+ h1{
+          text-align: center;
+        margin-top: 11%;
+        margin-bottom: 5%;
+ }
+
+ .searchPart{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+ }
  
