@@ -3,14 +3,61 @@
           box-sizing: border-box;
 }
 
+body{
+  color: white;
+  background-color:rgb(19, 19, 20);
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 img{
           opacity: 0.6;
+}
+
+/* #inputPart{
+  height: 30px;
+  width: 1000px;
+  background-color: black;
+  text-align: center;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.685);
+} */
+
+#inputPart{
+  height: 40px;
+  width: 1000px;
+  text-align: center;
+  font-size: 15px;
+    margin-bottom: 30px;
+  background: rgb(30, 31, 32);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);  
+ 
+  border: 1.5px solid rgba(255, 255, 255, 0.377);
+  
+  border-radius: 16px;
+  overflow: hidden;  
+}
+
+#titleIcon{
+ height: 40px;
+ 
+}
+.titleZone{
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#mainTitle{
+   font-size: 70px;
 }
 
  img:hover{
 
           transform: scale(1.1);
 opacity: 1;
+border-radius: 12px;
  }
 
  .galleryPart{
@@ -19,11 +66,12 @@ opacity: 1;
           grid-template-rows: 1fr 1fr 1fr 1fr;
  }
 
- article{
+  .domaPart{
           overflow: scroll;
           scrollbar-width: none;
-          border: 1px solid blue;
- }
+          border: 1px solid rgba(255, 255, 255, 0.479);
+          border-radius: 10px;
+ }  
  article >h3{
           text-align: center;
  }
@@ -40,4 +88,9 @@ opacity: 1;
           justify-content: center;
           align-items: center;
  }
- 
+
+
+ .imgAlbum{
+          border-radius: 10px;
+          
+ }
