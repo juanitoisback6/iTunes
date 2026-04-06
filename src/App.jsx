@@ -2,6 +2,7 @@ import { useState, createContext, useEffect } from 'react'
  
 import './App.css'
 import FetchCompo from './Components/FetchCompo'
+import Footer from './Components/Footer';
 
 
   export const iTunesContext = createContext();
@@ -172,6 +173,7 @@ useEffect(() => {
      <iTunesContext.Provider value={{setSearchTerm, fData, дома, error, loading}}>
       <FetchCompo/>
      </iTunesContext.Provider>
+     <Footer/>
       
     </>
     
