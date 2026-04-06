@@ -1,6 +1,7 @@
 
 import { useContext, useEffect, useState } from "react";
 import { iTunesContext } from "../App";
+import appleLogo from "../assets/mac-os.png";
 
 
 
@@ -26,10 +27,14 @@ if (audio !== e.target){
 
 return(
 <>
+<section className="titleZone">
+<h1 id="mainTitle">iTunes</h1>
+<img id="titleIcon" src={appleLogo} alt="Apple Icon" />
+</section>
+          
 
-          <h1>iTunes</h1>
-
-         <input type="text" 
+<section className="searchPart">
+<input id="inputPart" type="text" 
          onChange={(e)=>{
           if(e.target.value.trim()===""){
                     console.log("mpty space")
@@ -38,6 +43,8 @@ setSearchTerm(e.target.value)
           }
           
           }} placeholder="Search here..." /> 
+</section>
+         
 
 {loading &&  <section className="loader">Loading</section>}
          
@@ -46,15 +53,22 @@ setSearchTerm(e.target.value)
             {error && <section className="error">Error getting the data </section>}
 
           <section className="galleryPart">
+ 
 
+                                {/*Home display part*/}
 
 {fData.length === 0 && дома.map((datos, key)=>{
                     return(
-                               <article key={datos.collectionId}>
-                                        <h2>{datos.collectionCensoredName}</h2>
-           <a href={datos.collectionViewUrl} target="_blank" rel="noopener noreferrer"> <img src={datos.artworkUrl100} alt="Album img" />   </a>
+                               <article className="domaPart" key={datos.collectionId}>
+                                    <section className="sectionImage">
+                                    <a href={datos.collectionViewUrl} target="_blank" rel="noopener noreferrer"> <img className="imgAlbum" src={datos.artworkUrl100.replace('100x100bb', '600x600bb')} alt="Album img" />   </a>     
+                                        
+                                        </section>    
+          
 
-           <a href={datos.collectionViewUrl} target="_blank" rel="noopener noreferrer"> <h2 > {datos.artistName} </h2> </a>
+           <a href={datos.collectionViewUrl} target="_blank" rel="noopener noreferrer"> <h2 id="albumName">{datos.collectionCensoredName}</h2> </a> 
+
+           <a href={datos.collectionViewUrl} target="_blank" rel="noopener noreferrer"> <h2 id="artistDoma"> {datos.artistName} </h2> </a>
 
            <h3>Genre: {datos.primaryGenreName}</h3>
                     </article>    
@@ -65,15 +79,15 @@ setSearchTerm(e.target.value)
 
 
 
-
+                       {/*Search display part*/}
 
             {fData.length > 0 && fData.map((datos, key)=>{
                     return(
-                               <article key={datos.trackId}>
+                               <article className="searchPartFeed" key={datos.trackId}>
 
                                
                            
-          <h2 > {datos.trackName} </h2>
+          <h2 key={key}> {datos.trackName} </h2>
           <h4 > {datos.artistName} </h4>
            <a href={datos.trackViewUrl} target="_blank" rel="noopener noreferrer"><img src={datos.artworkUrl100} alt="img bad bunny" /> </a>
            <audio onPlay={(e)=>{stopSongs(e)}} controls>
