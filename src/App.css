@@ -25,37 +25,37 @@ img{
 
 #inputPart{
   height: 40px;
-  width: 1000px;
+  width: 70%;
   text-align: center;
   font-size: 15px;
-    margin-bottom: 30px;
+  margin-bottom: 50px;
   background: rgb(30, 31, 32);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);  
  
   border: 1.5px solid rgba(255, 255, 255, 0.377);
-  
+  color: white;
   border-radius: 16px;
   overflow: hidden;  
 }
 
 #titleIcon{
- height: 40px;
+ height: 7vh;
  
 }
 .titleZone{
-  display: flex;
+display: flex;
 justify-content: center;
 align-items: center;
 }
 
 #mainTitle{
-   font-size: 70px;
+   font-size: 7vh;
 }
 
  img:hover{
 
-          transform: scale(1.1);
+transform: scale(1.02);
 opacity: 1;
 border-radius: 12px;
  }
@@ -67,17 +67,21 @@ border-radius: 12px;
  }
 
   .domaPart{
-          overflow: scroll;
-          scrollbar-width: none;
-          border: 1px solid rgba(255, 255, 255, 0.479);
-          border-radius: 10px;
- }  
- article >h3{
-          text-align: center;
+   margin: 5px;
+}
+
+.domaPart > a{
+  text-decoration: none;
+  color: white;
+  font-size: 9px;
+}
+.domaPart >h3{
+        font-size: 8px;
+          font-family: Arial, Helvetica, sans-serif;
  }
 
  h1{
-          text-align: center;
+        text-align: center;
         margin-top: 11%;
         margin-bottom: 5%;
  }
@@ -89,8 +93,63 @@ border-radius: 12px;
           align-items: center;
  }
 
+ 
+
 
  .imgAlbum{
           border-radius: 10px;
+          width: 80%;
           
  }
+
+ #albumName{
+ 
+    overflow:  hidden ; 
+    text-overflow: ellipsis;
+    width:  50%;
+    height: 16px; 
+    display: block ;
+ }
+
+ #artistDoma{
+   overflow:  hidden ; 
+    text-overflow: ellipsis;
+    width:  120px;
+    height: 16px;
+    display: block ;
+ }
+
+ footer{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  align-items: center;
+  background-color: #111111;
+}
+
+footer>a{
+  text-decoration: none;
+  color: white;
+}
+
+
+.searchPartFeed > audio{
+width: calc(100vw/4);
+background-color: #111111;
+ 
+}
+
+ @media screen and (max-width: 600px) {
+.galleryPart{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+           
+ }
+
+ .searchPartFeed > audio{
+width: calc(100vw/2);
+}
+
+ 
+}
