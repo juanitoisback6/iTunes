@@ -59,20 +59,24 @@ setSearchTerm(e.target.value)
 
 {fData.length === 0 && дома.map((datos, key)=>{
                     return(
+ 
+                       
                                <article className="domaPart" key={datos.collectionId}>
                                     <section className="sectionImage">
-                                    <a href={datos.collectionViewUrl} target="_blank" rel="noopener noreferrer"> <img className="imgAlbum" src={datos.artworkUrl100.replace('100x100bb', '600x600bb')} alt="Album img" />   </a>     
+                                    <a href={datos.collectionViewUrl} target="_blank" rel="noopener noreferrer"> <img className="imgAlbum" 
+                                    src={datos.artworkUrl100.replace('100x100bb', '600x600bb')} alt="Album img" />   </a>     
                                         
                                         </section>    
           
 
            <a href={datos.collectionViewUrl} target="_blank" rel="noopener noreferrer"> <h2 id="albumName">{datos.collectionCensoredName}</h2> </a> 
 
-           <a href={datos.collectionViewUrl} target="_blank" rel="noopener noreferrer"> <h2 id="artistDoma"> {datos.artistName} </h2> </a>
+           <a href={datos.collectionViewUrl} target="_blank" rel="noopener noreferrer"> <p id="artistDoma"> {datos.artistName} </p> </a>
 
-           <h3>Genre: {datos.primaryGenreName}</h3>
+           <p className="domaPhara">Genre: {datos.primaryGenreName}</p>
                     </article>    
-
+ 
+                                 
                     )
                   
             })} 
