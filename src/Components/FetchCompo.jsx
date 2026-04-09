@@ -69,11 +69,10 @@ setSearchTerm(e.target.value)
                                         </section>    
           
 
-           <a href={datos.collectionViewUrl} target="_blank" rel="noopener noreferrer"> <h2 id="albumName">{datos.collectionCensoredName}</h2> </a> 
+           <a href={datos.collectionViewUrl} target="_blank" rel="noopener noreferrer"> <h2 className="albumSongName">{datos.collectionCensoredName}</h2> </a> 
 
-           <a href={datos.collectionViewUrl} target="_blank" rel="noopener noreferrer"> <p id="artistDoma"> {datos.artistName} </p> </a>
-
-           <p className="domaPhara">Genre: {datos.primaryGenreName}</p>
+           <a href={datos.collectionViewUrl} target="_blank" rel="noopener noreferrer"> <p className="artistPart"> {datos.artistName} </p> </a>
+ 
                     </article>    
  
                                  
@@ -89,12 +88,16 @@ setSearchTerm(e.target.value)
                     return(
                                <article className="searchPartFeed" key={datos.trackId}>
 
-                               
-                           
-          <h2 key={key}> {datos.trackName} </h2>
-          <h4 > {datos.artistName} </h4>
-           <a href={datos.trackViewUrl} target="_blank" rel="noopener noreferrer"><img src={datos.artworkUrl100} alt="img bad bunny" /> </a>
-           <audio onPlay={(e)=>{stopSongs(e)}} controls>
+ <section className="sectionImage"> 
+                  <img className="imgAlbum" src={datos.artworkUrl100.replace('100x100bb', '600x600bb')} alt="img of the album" />               
+                        </section>
+<a href={datos.trackViewUrl} target="_blank" className="anchorNameAlbum" rel="noopener noreferrer"> 
+          <h2 className="albumSongName" key={key}> {datos.trackName} </h2>
+          </a>
+
+          <p className="artistPart"> {datos.artistName} </p>
+           
+           <audio onPlay={(e)=>{stopSongs(e)}} >
           <source  src={datos.previewUrl} type="audio/mpeg" />
   Tu navegador no soporta el elemento de audio.
           </audio>
