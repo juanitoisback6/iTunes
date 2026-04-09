@@ -96,6 +96,10 @@ border-radius: 12px;
           font-family: Arial, Helvetica, sans-serif;
  }
 
+ .searchPartFeed{
+
+ }
+
  h1{
         text-align: center;
         margin-top: 11%;
@@ -118,21 +122,26 @@ border-radius: 12px;
           
  }
 
- #albumName{
- 
+.albumSongName{
+    white-space: nowrap;
     overflow:  hidden ; 
     text-overflow: ellipsis;
-    width:  50%;
-    height: 16px; 
-    display: block ;
+    width: 80%;
+     color: white;
+     font-size: 20px;
  }
 
- #artistDoma{
+ .anchorNameAlbum{
+  color: white;
+  text-decoration: none;
+ }
+
+.artistPart{
+  white-space: nowrap;
    overflow:  hidden ; 
     text-overflow: ellipsis;
-    width:  120px;
-    height: 16px;
-    display: block ;
+    width:  80%;
+   font-size: 15px;
     opacity: 0.5;
  }
 
