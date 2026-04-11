@@ -41,6 +41,10 @@ img{
   overflow: hidden;  
 }
 
+.hidden{
+  display: none  !important;
+}
+
 #titleIcon{
  height: 7vh;
  
@@ -80,9 +84,7 @@ border-radius: 12px;
      
  }
 
-  .domaPart{
-   
-}
+
 
  
 
@@ -137,12 +139,12 @@ border-radius: 12px;
  }
 
 .artistPart{
-  white-space: nowrap;
+   white-space: nowrap;
    overflow:  hidden ; 
-    text-overflow: ellipsis;
-    width:  80%;
+   text-overflow: ellipsis;
+   width:  80%;
    font-size: 15px;
-    opacity: 0.5;
+   opacity: 0.5;
  }
 
  footer{
@@ -165,17 +167,69 @@ width: calc(100vw/4);
 background-color: #111111;
  
 }
+ 
+.image-container {
+  position: relative;  
+  width: 100%;
+  border-radius: 12px;  
+  overflow: hidden;
+}
+ 
+.glass-button {
+   
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%); 
+  z-index: 10;
+ 
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   
+  color: white; 
+  cursor: pointer;
+ 
+  background: rgba(255, 255, 255, 0.15);  
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-top: 1px solid rgba(255, 255, 255, 0.26);  
+  border-left: 1px solid rgba(255, 255, 255, 0.26);  
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);  
+   
+  transition: all 0.4s ease;
+}
+ 
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0);  
+  transform: translate(-50%, -50%) scale(1.1);  
+    backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
 
  @media screen and (max-width: 600px) {
+
+
 .galleryPart{
+  
           display: grid;
           grid-template-columns: 1fr 1fr;
            
  }
 
- .searchPartFeed > audio{
-width: calc(100vw/2);
+
+  .domaPart{
+   width: 40dvw;
 }
 
+.searchPartFeed{
+width: 40dvw;
+}
+ 
  
 }
