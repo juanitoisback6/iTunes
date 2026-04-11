@@ -1,5 +1,5 @@
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { iTunesContext } from "../App";
 import appleLogo from "../assets/mac-os.png";
 
@@ -8,9 +8,25 @@ import appleLogo from "../assets/mac-os.png";
 export default function FetchCompo () {
 
 
-          const {setSearchTerm, fData, дома, error, loading }=useContext(iTunesContext);
+const {setSearchTerm, fData, дома, error, loading }=useContext(iTunesContext);
 
 const [datosA, setDatosA] = useState([]);
+
+const [playing, setPlaying] = useState(false);
+
+const [hoverSong, setHoverSong] = useState(null);
+
+
+function hoverSongIn(id){
+         
+setHoverSong(id)
+        
+}
+function hoverSongOut(){
+        
+setHoverSong(null)
+     
+}
 
 function stopSongs (e){
 
@@ -22,6 +38,18 @@ if (audio !== e.target){
 }
 })
 
+}
+
+const audioRef= useRef(null);
+
+function toggleAudio (){
+    if(playing){
+        audioRef.current.pause();
+setPlaying(false);
+    }else{
+        audioRef.current.play();
+setPlaying(true);
+    }
 }
 
 
@@ -88,19 +116,36 @@ setSearchTerm(e.target.value)
                     return(
                                <article className="searchPartFeed" key={datos.trackId}>
 
- <section className="sectionImage"> 
-                  <img className="imgAlbum" src={datos.artworkUrl100.replace('100x100bb', '600x600bb')} alt="img of the album" />               
-                        </section>
+ <section 
+ className="image-container" 
+ onMouseEnter={()=>{hoverSongIn(datos.trackId)}} 
+ onMouseLeave={hoverSongOut}> 
+<img className="imgAlbum" 
+src={datos.artworkUrl100.replace('100x100bb', '600x600bb')} alt="img of the album" />            
+ 
+        <button onClick={toggleAudio} className= {`glass-button ${hoverSong === datos.trackId ? "" : "hidden"}`}  >
+
+                {playing?<svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                </svg> :  <svg viewBox="0 0 24 24" width="48" height="48"fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+                </svg> }     
+        </button> 
+                  <audio 
+                  onPlay={(e)=>{stopSongs(e)}}
+                  ref={audioRef} >
+          <source  src={datos.previewUrl} 
+          type="audio/mpeg" />
+  Tu navegador no soporta el elemento de audio.
+          </audio>
+</section>
 <a href={datos.trackViewUrl} target="_blank" className="anchorNameAlbum" rel="noopener noreferrer"> 
           <h2 className="albumSongName" key={key}> {datos.trackName} </h2>
           </a>
 
           <p className="artistPart"> {datos.artistName} </p>
            
-           <audio onPlay={(e)=>{stopSongs(e)}} >
-          <source  src={datos.previewUrl} type="audio/mpeg" />
-  Tu navegador no soporta el elemento de audio.
-          </audio>
+           
                     </article>    
 
                     )
