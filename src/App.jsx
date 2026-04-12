@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect } from 'react'
+import { useState, createContext, useEffect } from 'react';
  
 import './App.css'
 import FetchCompo from './Components/FetchCompo'
@@ -25,12 +25,11 @@ useEffect(() => {
 
    async function fetchДома() {
 
-    const controller = new AbortController();
+  const controller = new AbortController();
   const signal = controller.signal;
 
     setLoading(true);
      setError(null);
-    
 
 
     try {
@@ -170,10 +169,16 @@ useEffect(() => {
 
   return (
     <>
-     <iTunesContext.Provider value={{setSearchTerm, fData, дома, error, loading}}>
-      <FetchCompo/>
+
+    <Routes>
+        <iTunesContext.Provider value={{setSearchTerm, fData, дома, error, loading}}>  
+
+<FetchCompo/>
+
      </iTunesContext.Provider>
      <Footer/>
+    </Routes>
+   
       
     </>
     
