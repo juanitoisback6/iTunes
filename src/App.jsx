@@ -1,8 +1,10 @@
 import { useState, createContext, useEffect } from 'react';
- 
+ import { Route, Routes } from "react-router-dom";
 import './App.css'
 import FetchCompo from './Components/FetchCompo'
 import Footer from './Components/Footer';
+import Home from './Components/Home';
+import SearchPart from './Components/SearchPart';
 
 
   export const iTunesContext = createContext();
@@ -167,17 +169,29 @@ useEffect(() => {
   // console.log(typeof(fData));
 }, [дома]);
 
+ 
+ 
+
   return (
     <>
-
-    <Routes>
+ 
         <iTunesContext.Provider value={{setSearchTerm, fData, дома, error, loading}}>  
+          <SearchPart/>
+<Routes>
+<Route path="/" element={<Home/>}/>
+<Route path="/search" element={<FetchCompo/>}/>
 
-<FetchCompo/>
+</Routes>
 
+
+<Footer/>
      </iTunesContext.Provider>
-     <Footer/>
-    </Routes>
+
+
+  
+
+ 
+     
    
       
     </>
