@@ -193,8 +193,8 @@ useEffect(() => {
         <iTunesContext.Provider value={{setSearchTerm, fData, дома, error, loading, setFData, randomFetchFunction}}>  
           <SearchPart/>
 <Routes>
-<Route path="/" element={<Home/>}/>
-<Route path="/search" element={<FetchCompo/>}/>
+<Route path="/iTunes/" element={<Home/>}/>
+<Route path="/iTunes/search" element={<FetchCompo/>}/>
 
 </Routes>
 

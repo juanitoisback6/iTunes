@@ -36,7 +36,7 @@ return(
                                         
                               }else{
                     setSearchTerm(e.target.value);
-                              navigate("/search")
+                              navigate("/iTunes/search")
                               }
                               
                               }} placeholder="Search here..." /> 
