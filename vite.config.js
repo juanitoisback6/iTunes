@@ -8,5 +8,6 @@
      react(),
      basicSsl()  
    ],
- })
+   base: "/iTunes"
+ });
  

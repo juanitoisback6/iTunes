@@ -1,7 +1,10 @@
-import { useState, createContext, useEffect } from 'react'
- 
+import { useState, createContext, useEffect } from 'react';
+ import { Route, Routes, useNavigate } from "react-router-dom";
 import './App.css'
 import FetchCompo from './Components/FetchCompo'
+import Footer from './Components/Footer';
+import Home from './Components/Home';
+import SearchPart from './Components/SearchPart';
 
 
   export const iTunesContext = createContext();
@@ -13,9 +16,91 @@ function App() {
   const [fData, setFData] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+ 
+const navigate = useNavigate();
+// Random Music Fetch
+
+ 
+ function randomFetchFunction() {
+ 
+ 
+const terminosAleatorios = [
+  "rock", "pop", "jazz", "blues", "classical", "hip hop", "rap", 
+  "electronic", "dance", "reggae", "country", "metal", "indie", 
+  "r&b", "soul", "funk", "punk", "disco", "house", "techno", 
+  "salsa", "reggaeton", "bachata", "k-pop", "lo-fi", "acoustic",
+  "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
+  "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+];
+
+const randomIndex = Math.floor(Math.random()* terminosAleatorios.length);
+const randomThing= terminosAleatorios[randomIndex];
+setSearchTerm(randomThing);
+navigate("/search");
+
+   }
 
 
+
+// Дома часть,  зто дома часть
+    
+  const [дома, setДома] = useState([]);
+
+
+useEffect(() => {
+
+   async function fetchДома() {
+
+  const controller = new AbortController();
+  const signal = controller.signal;
+
+    setLoading(true);
+     setError(null);
+
+
+    try {
+ const response = await fetch(`https://itunes.apple.com/search?term=pop&entity=album&limit=20`,{signal});
+
+      if(!response.ok){
+        throw new Error("Response was not ok")
+      }
+      const data = await response.json();
+ 
+      if(!signal.aborted){
+        setДома(data.results);
+         console.log(data)
+      }
   
+
+      
+    } catch (error) {
+      if (error.name === "AbortError"){
+        console.log("Fetch aborted");
+      }else{
+        setError(error)
+        if(!signal.aborted){
+          setError(error.message);
+        }
+      }
+    }
+
+    finally{
+      if (!signal.aborted){
+        setLoading(false);
+      }
+    }
+
+return () => { 
+    controller.abort();
+  };
+
+  }
+
+  fetchДома();
+  
+}, []);
+
+//Fetch part of the input part
 
   async function fetchD(url, signal) {
 
@@ -25,9 +110,7 @@ function App() {
 
 
     try {
- 
-
-      const response = await fetch (`https://itunes.apple.com/search?term=${url}&entity=song&limit=20`,{signal});
+      const response = await fetch(`https://itunes.apple.com/search?term=${url}&entity=song&limit=20`,{signal});
 
       if(!response.ok){
         throw new Error("Response was not ok")
@@ -87,18 +170,44 @@ useEffect(() => {
 
 }, [searchTerm]);
 
-
+// To see when the input fetch is made
 useEffect(() => {
   console.log(fData); 
   console.log(fData.length);
   console.log(typeof(fData));
 }, [fData]);
 
+// To see when the home fetch is made
+useEffect(() => {
+  console.log(дома); 
+  // console.log(fData.length);
+  // console.log(typeof(fData));
+}, [дома]);
+
+ 
+ 
+
   return (
     <>
-     <iTunesContext.Provider value={{setSearchTerm, fData}}>
-      <FetchCompo/>
+ 
+        <iTunesContext.Provider value={{setSearchTerm, fData, дома, error, loading, setFData, randomFetchFunction}}>  
+          <SearchPart/>
+<Routes>
+<Route path="/" element={<Home/>}/>
+<Route path="/search" element={<FetchCompo/>}/>
+
+</Routes>
+
+
+<Footer/>
      </iTunesContext.Provider>
+
+
+  
+
+ 
+     
+   
       
     </>
     

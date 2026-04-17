@@ -1,6 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+IE:wght@100..400&display=swap');
+
 *{
           margin: 0;
           box-sizing: border-box;
 }
 
+body{
+  color: white;
+  background-color:rgb(19, 19, 20);
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
  
+
+img{
+          opacity: 0.6;
+}
+ 
+
+#inputPart{
+  height: 40px;
+  width: 70%;
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 50px;
+  background: rgb(30, 31, 32);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);  
+ 
+  border: 1.5px solid rgba(255, 255, 255, 0.945);
+  color: white;
+  border-radius: 16px;
+  overflow: hidden;  
+}
+
+.hidden{
+  display: none  !important;
+}
+
+#titleIcon{
+ height: 5vh;
+ 
+ animation: lighting 3s alternate infinite;
+}
+
+@keyframes lighting {
+           
+          0% { opacity: 0; }
+  
+          100% { opacity: 1; }
+           
+}
+
+.titleZone{
+display: flex;
+justify-content: center;
+align-items: center;
+ 
+background: #CE5937;
+background: -moz-linear-gradient(to bottom, rgba(220, 10, 45, 0.815) 10%, rgb(19, 19, 20) 70%);
+background: -webkit-linear-gradient(to bottom, rgba(220, 10, 45, 0.815) 10%, rgb(19, 19, 20) 70%);
+background: linear-gradient(to bottom, rgba(220, 10, 45, 0.815) 10%, rgb(19, 19, 20) 70%);
+  
+}
+
+#mainTitle{
+   font-size: 7vh;
+   color: white;
+   text-decoration: none;
+   font-family: "Playwrite IE", cursive;
+}
+.mainTitleLink{
+  text-decoration: none;
+}
+
+.loader{
+  position: absolute;
+  top:0%;
+  left:0%;
+  background: #0000008f;
+  z-index: 30;
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
+ 
+
+ .innerLoader{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width:clamp(50px,40vw, 150px );
+  aspect-ratio: 1 / 1;
+  color: white;
+
+  background: -moz-radial-gradient(center, #000000 0%, #313131 50%, #0000008f 100%);
+background: -webkit-radial-gradient(center, #000000 0%, #313131 50%, #0000008f 100%);
+background: radial-gradient(ellipse at center, #000000 0%, #313131 50%, #0000008f 100%);
+
+ }
+
+ .innerLoader > p {
+  margin-top: 4px;
+  font-family: "Playwrite IE", cursive;
+   
+ }
+
+ img:hover{
+
+transform: scale(1.02);
+opacity: 1;
+border-radius: 12px;
+ }
+
+ #svgLoading{
+animation: bajar 2s ease-in-out infinite alternate;
+ }
+@keyframes bajar {
+  from {
+    transform: translateY(0);  
+  }
+  to {
+    transform: translateY(15px);  
+  }
+}
+
+
+ .galleryPart{
+          display: grid;
+          grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+           gap: 2rem; 
+   
+  max-width: 1200px; 
+  margin: 0 auto; 
+  
+  padding: 2rem;
+     
+ }
+
+  .homeTitle{
+    display: flex;
+    justify-content: center;
+   color: rgb(250, 88, 106);
+  }
+
+
+ 
+
+.domaPart > a{
+  text-decoration: none;
+  color: white;
+  font-size: 9px;
+}
+.domaPhara{
+        font-size: 10px;
+          font-family: Arial, Helvetica, sans-serif;
+ }
+.songName{
+text-decoration: none;
+}
+
+.songName>h2:hover{
+  color: rgb(165, 0, 18);
+}
+.artistSearchPart {
+color: rgb(255, 255, 255);
+text-decoration: none;
+ 
+ }
+
+.artistSearchPart:hover{
+ color: white;
+text-decoration: none;
+opacity: 0.8;
+ }
+
+ h1{
+        text-align: center;
+        margin-top: 11%;
+        margin-bottom: 5%;
+ }
+
+ .searchPart{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+ }
+
+ 
+
+
+ .imgAlbum{
+          border-radius: 10px;
+          width: 80%;
+          
+ }
+
+.albumSongName{
+    white-space: nowrap;
+    overflow:  hidden ; 
+    text-overflow: ellipsis;
+    width: 80%;
+     color: white;
+     font-size: 20px;
+ }
+
+ .albumSongName:hover{
+   color: rgb(165, 0, 18);
+ }
+
+ .anchorNameAlbum{
+  color: white;
+  text-decoration: none;
+ }
+
+.artistPart{
+   white-space: nowrap;
+   overflow:  hidden ; 
+   text-overflow: ellipsis;
+   width:  80%;
+   font-size: 15px;
+    color: rgb(250, 88, 106);
+   
+ }
+
+ .artistPart:hover{
+  opacity: 1;
+  color: rgb(165, 0, 18);
+ }
+
+ footer{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  align-items: center;
+  background-color: #111111;
+}
+
+footer>a{
+  text-decoration: none;
+  color: white;
+}
+
+#sing{
+  font-family: "Playwrite IE", cursive;
+  text-align: center;
+}
+
+.searchPartFeed > audio{
+width: calc(100vw/4);
+background-color: #111111;
+ 
+}
+
+#errorP{
+  text-align: center;
+}
+
+.error{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.randomIcon{
+  cursor: pointer;
+}
+ 
+.image-container {
+  position: relative;  
+  width: 100%;
+  border-radius: 12px;  
+  overflow: hidden;
+}
+ 
+.glass-button {
+   
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%); 
+  z-index: 10;
+ 
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   
+  color: white; 
+  cursor: pointer;
+ 
+  background: rgba(255, 255, 255, 0.15);  
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-top: 1px solid rgba(255, 255, 255, 0.26);  
+  border-left: 1px solid rgba(255, 255, 255, 0.26);  
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);  
+   
+  transition: all 0.4s ease;
+}
+ 
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0);  
+  transform: translate(-50%, -50%) scale(1.1);  
+    backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
+.footer{
+  background: linear-gradient(to bottom, rgb(19, 19, 20) 30%, rgba(220, 10, 45, 0.219) 70%)
+}
+
+ @media screen and (max-width: 600px) {
+
+
+.galleryPart{
+  
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+           
+ }
+
+
+  .domaPart{
+   width: 40dvw;
+}
+
+.searchPartFeed{
+width: 40dvw;
+}
+ 
+ 
+}

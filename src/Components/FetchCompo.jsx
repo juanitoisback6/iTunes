@@ -1,39 +1,42 @@
 
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import { iTunesContext } from "../App";
-
+import TrackCard from "./TrackCard";
 
 
 export default function FetchCompo () {
 
 
-          const {setSearchTerm, fData }=useContext(iTunesContext);
+const { fData }=useContext(iTunesContext);
 
-const [datosA, setDatosA] = useState([]);
+  
 
+function stopSongs (e){
 
+const otherAudio = document.querySelectorAll("audio");
 
+otherAudio.forEach((audio)=>{
+if (audio !== e.target){
+          audio.pause();
+          
+}
+})
 
+}
 return(
 <>
-
-          <h1>iTunes</h1>
-
-         <input type="text" 
-         onChange={(e)=>{
-          if(e.target.value.trim()===""){
-                    console.log("mpty space")
-          }else{
-setSearchTerm(e.target.value)
-          }
-          
-          }} placeholder="Search here..." /> 
-
           <section className="galleryPart">
+  
+        {/*Search display part*/}
+
             {fData.length > 0 && fData.map((datos, key)=>{
-                  <h2 key={key}>{datos.trackCensoredName}</h2> 
+                    return(
+ 
+
+                                 
+ <TrackCard key={datos.trackId} datos={datos} stopSongs={stopSongs}/>
+              )
                   
-                     
             })} 
           </section> 
 </>
