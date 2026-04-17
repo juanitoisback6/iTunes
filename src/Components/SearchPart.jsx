@@ -21,7 +21,7 @@ return(
 
                     <>
                     <section className="titleZone">
-                    <Link onClick={()=>setFData([])} className="mainTitleLink" to={"/"}>  <h1 id="mainTitle">iTunes</h1></Link>
+                    <Link onClick={()=>setFData([])} className="mainTitleLink" to={"/iTunes/"}>  <h1 id="mainTitle">iTunes</h1></Link>
                     <img id="titleIcon" src={appleLogo} alt="Apple Icon" />
                     </section>
                               
