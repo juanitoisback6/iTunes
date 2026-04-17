@@ -36,7 +36,7 @@ const terminosAleatorios = [
 const randomIndex = Math.floor(Math.random()* terminosAleatorios.length);
 const randomThing= terminosAleatorios[randomIndex];
 setSearchTerm(randomThing);
-navigate("/search");
+navigate("/iTunes/search");
 
    }
 

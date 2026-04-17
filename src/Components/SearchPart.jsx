@@ -31,7 +31,7 @@ return(
                              onChange={(e)=>{
                               if(e.target.value.trim()===""){
                                         console.log("Empty space");
-                                        navigate("/");
+                                        navigate("/iTunes/");
                                         setFData([]);
                                         
                               }else{
