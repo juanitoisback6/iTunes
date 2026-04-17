@@ -3,10 +3,6 @@ import cj from "../assets/cj-gta.gif"
 
 
 
-
-
-
-
 export default function Footer (){
 
  return(

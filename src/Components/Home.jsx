@@ -4,12 +4,6 @@ import { useContext, useEffect, useState, useRef } from "react";
 import { iTunesContext } from "../App";
 
 
-
- 
-
-
-
-
 export default function Home (){
 
 const {setSearchTerm, fData, дома}=useContext(iTunesContext);
