@@ -74,7 +74,43 @@ background: linear-gradient(to bottom, rgba(220, 10, 45, 0.815) 10%, rgb(19, 19,
   text-decoration: none;
 }
 
+.loader{
+  position: absolute;
+  top:0%;
+  left:0%;
+  background: #0000008f;
+  z-index: 30;
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
  
+}
+ 
+
+ .innerLoader{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width:clamp(50px,40vw, 150px );
+  aspect-ratio: 1 / 1;
+  color: white;
+
+  background: -moz-radial-gradient(center, #000000 0%, #313131 50%, #0000008f 100%);
+background: -webkit-radial-gradient(center, #000000 0%, #313131 50%, #0000008f 100%);
+background: radial-gradient(ellipse at center, #000000 0%, #313131 50%, #0000008f 100%);
+
+ }
+
+ .innerLoader > p {
+  margin-top: 4px;
+  font-family: "Playwrite IE", cursive;
+   
+ }
 
  img:hover{
 
@@ -82,6 +118,19 @@ transform: scale(1.02);
 opacity: 1;
 border-radius: 12px;
  }
+
+ #svgLoading{
+animation: bajar 2s ease-in-out infinite alternate;
+ }
+@keyframes bajar {
+  from {
+    transform: translateY(0);  
+  }
+  to {
+    transform: translateY(15px);  
+  }
+}
+
 
  .galleryPart{
           display: grid;
@@ -201,11 +250,30 @@ footer>a{
   color: white;
 }
 
+#sing{
+  font-family: "Playwrite IE", cursive;
+  text-align: center;
+}
 
 .searchPartFeed > audio{
 width: calc(100vw/4);
 background-color: #111111;
  
+}
+
+#errorP{
+  text-align: center;
+}
+
+.error{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.randomIcon{
+  cursor: pointer;
 }
  
 .image-container {
