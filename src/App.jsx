@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from 'react';
- import { Route, Routes } from "react-router-dom";
+ import { Route, Routes, useNavigate } from "react-router-dom";
 import './App.css'
 import FetchCompo from './Components/FetchCompo'
 import Footer from './Components/Footer';
@@ -16,6 +16,30 @@ function App() {
   const [fData, setFData] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+ 
+const navigate = useNavigate();
+// Random Music Fetch
+
+ 
+ function randomFetchFunction() {
+ 
+ 
+const terminosAleatorios = [
+  "rock", "pop", "jazz", "blues", "classical", "hip hop", "rap", 
+  "electronic", "dance", "reggae", "country", "metal", "indie", 
+  "r&b", "soul", "funk", "punk", "disco", "house", "techno", 
+  "salsa", "reggaeton", "bachata", "k-pop", "lo-fi", "acoustic",
+  "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
+  "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+];
+
+const randomIndex = Math.floor(Math.random()* terminosAleatorios.length);
+const randomThing= terminosAleatorios[randomIndex];
+setSearchTerm(randomThing);
+navigate("/search");
+
+   }
+
 
 
 // Дома часть,  зто дома часть
@@ -35,9 +59,7 @@ useEffect(() => {
 
 
     try {
- 
-
-      const response = await fetch (`https://itunes.apple.com/search?term=pop&entity=album&limit=20`,{signal});
+ const response = await fetch(`https://itunes.apple.com/search?term=pop&entity=album&limit=20`,{signal});
 
       if(!response.ok){
         throw new Error("Response was not ok")
@@ -78,11 +100,6 @@ return () => {
   
 }, []);
 
-
-
-  
-
-
 //Fetch part of the input part
 
   async function fetchD(url, signal) {
@@ -93,9 +110,7 @@ return () => {
 
 
     try {
- 
-
-      const response = await fetch (`https://itunes.apple.com/search?term=${url}&entity=song&limit=20`,{signal});
+      const response = await fetch(`https://itunes.apple.com/search?term=${url}&entity=song&limit=20`,{signal});
 
       if(!response.ok){
         throw new Error("Response was not ok")
@@ -175,7 +190,7 @@ useEffect(() => {
   return (
     <>
  
-        <iTunesContext.Provider value={{setSearchTerm, fData, дома, error, loading}}>  
+        <iTunesContext.Provider value={{setSearchTerm, fData, дома, error, loading, setFData, randomFetchFunction}}>  
           <SearchPart/>
 <Routes>
 <Route path="/" element={<Home/>}/>
