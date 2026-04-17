@@ -102,11 +102,28 @@ background: linear-gradient(to bottom, rgba(220, 10, 45, 0.815) 10%, rgb(19, 19,
   aspect-ratio: 1 / 1;
   color: white;
 
-  background: -moz-radial-gradient(center, #000000 0%, #313131 50%, #0000008f 100%);
-background: -webkit-radial-gradient(center, #000000 0%, #313131 50%, #0000008f 100%);
-background: radial-gradient(ellipse at center, #000000 0%, #313131 50%, #0000008f 100%);
-
+animation: fondocolor 2s infinite alternate;
  }
+
+ @keyframes fondocolor {
+  0% {
+    
+background: -moz-radial-gradient(center, #000000 0%, #313131 50%, #0000008f 100%);
+background: -webkit-radial-gradient(center, #000000 0%, #313131 50%, #0000008f 100%);
+background: radial-gradient(ellipse at center, #000000 0%, #313131 50%, #0000008f 100%); 
+  }
+  50% {
+    
+  background: -moz-radial-gradient(ellipse at center, #0000008f 0%, #000000 50%, #313131 100%);
+background: -webkit-radial-gradient(ellipse at center, #0000008f 0%, #000000 50%, #313131 100%);
+background: radial-gradient(ellipse at center, #0000008f 0%, #000000 50%, #313131 100%);
+  }
+  100%{
+ background: -moz-radial-gradient(ellipse at center, #313131 0%, #0000008f 50%, #000000 100%);
+background: -webkit-radial-gradient(ellipse at center, #313131 0%, #0000008f 50%, #000000 100%);
+background: radial-gradient(ellipse at center, #313131 0%, #0000008f 50%, #000000 100%);
+  }
+}
 
  .innerLoader > p {
   margin-top: 4px;
