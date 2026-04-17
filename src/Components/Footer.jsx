@@ -13,8 +13,9 @@ export default function Footer (){
   <>
 
    <footer className="footer">
-          <a href="https://github.com/juanitoisback6">
-<p> Made with love ❤️ by @Dakitidunno </p>
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/juanitoisback6">
+<p> Made with love ❤️ by  </p>
+<p id="sing">@Dakitidunno</p>
           </a>
   
   <img src={cj} width="200"/>
