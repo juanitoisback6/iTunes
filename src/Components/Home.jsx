@@ -4,24 +4,16 @@ import { useContext, useEffect, useState, useRef } from "react";
 import { iTunesContext } from "../App";
 
 
-
- 
-
-
-
-
 export default function Home (){
 
-const {setSearchTerm, fData, дома, error, loading}=useContext(iTunesContext);
+const {setSearchTerm, fData, дома}=useContext(iTunesContext);
 
 
 
           return(
 <>
 
-{loading &&  <section className="loader">Loading</section>}
-                             
-                    {error && <section className="error">Error getting the data </section>}
+
 <section className="galleryPart"> 
 
 {fData.length === 0 && дома.map((datos, key)=>{
